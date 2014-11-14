@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+
+    <title>Scholarship Seeker</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--<link href="/css/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/cosmo/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+<!--    <link href="/css/loading-bar.css" rel="stylesheet" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/css/social-buttons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Find Scholarships</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Welcome <span id="usernamespan"></span></a></li>
+                    <li id="myprofile"><a href="#">My Profile</a></li>
+                    <li id="myfavorites"><a href="#/favorites">My Favorites</a></li>
+                    <li id="logout"><a href="#" >Logout</a></li>
+                    <li id="login"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    <li id="register"><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Scholarship Categories
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+                <li>
+                    <a href="#">Category 1</a>
+                </li>
+            </ul>
+        </div>
+
+    <div class="container" id="mycontent">
+
+    </div>
+
+    <hr />
+    <div id="page-content-wrapper">
+    <div class="container-fluid">
+       <h3  id="searchinfo" class="form-login-heading">
+       </h3>   
+
+    <table id="scholarship" class="table table-condensed table-hover table-bordered">
+        <thead><tr><th>Scholarships search result </th></tr></thead>
+    </table>
+    </div>
+    </div>
+        </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 3rd party libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/scripts/script.js"></script>
+
+<!--Register Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="loginModalLabel">Scholarship Finder</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-login" role="form">
+            <h2 class="form-login-heading">Login Here...</h2>
+                    <input id="login_username" type="text" class="form-control" placeholder="User Name" required autofocus>
+                    <input id="login_password" type="password" class="form-control" placeholder="Password" required>
+            <div id="Div2" data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="loginbutton" type="button" class="btn btn-primary" onclick="login()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myyModalLabel">Scholarship Finder</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-login" role="form">
+            <h2 class="form-login-heading">Register Here...</h2>
+                    <input id="username" type="text" class="form-control" placeholder="User Name" required autofocus>
+                    <input id="password" type="password" class="form-control" placeholder="Password" required>
+                    <input id="fullname" type="text" class="form-control" placeholder="Full Name" required autofocus>
+                    <input id="usermajor" type="text" class="form-control" placeholder="Major" required>
+            <div id="msg" data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="registerbutton" type="button" class="btn btn-primary" onclick="register(); ">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--LoginPrompt Modal -->
+<div class="modal fade" id="loginprompt" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="H1">Scholarship Finder</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-login" role="form">
+            <h2 class="form-login-heading">You need to login so that we can store your favorites in your profile</h2>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+    	<!--<script src="/scripts/dialogs.js"></script>-->
+
+    
+</body>
+
+
+</html>

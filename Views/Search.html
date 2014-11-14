@@ -1,0 +1,20 @@
+﻿        <form class="form-login" role="form">
+            <h2 class="form-login-heading">Search Here...</h2>
+            <input id="title" type="text" class="form-control" placeholder="Title" autofocus>
+            <!--<input id="department" type="text" class="form-control" placeholder="Department" >-->
+            <select id="department" class="form-control" ></select>
+            <!--<input id="college" type="text" class="form-control" placeholder="College" >-->
+            <select id="college" class="form-control" ></select>
+            <select id="schoolyear" class="form-control" ></select>
+            <input id="major" type="text" class="form-control" placeholder="Major" autofocus>
+            <input id="undergradGPA" type="text" class="form-control" placeholder="Undergraduate GPA" autofocus>
+            <input id="gradGPA" type="text" class="form-control" placeholder="Graduate GPA" autofocus>
+            <input id="highschoolGPA" type="text" class="form-control" placeholder="High School GPA" autofocus>
+            <button id="searchbutton" class="btn btn-lg btn-primary btn-block" type="button" onclick="find();">Search!</button>
+            <div id="msg" data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'"></div>
+            <!--<div id="progressbar"></div>-->
+<div class="progress">
+  <div class="progress-bar" style="width: 60%;"></div>
+</div>
+            <i class="fa fa-spinner fa-spin"></i>
+        </form>
